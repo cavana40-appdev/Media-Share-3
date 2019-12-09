@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Film resource:
+
+  # CREATE
+  match("/insert_film", { :controller => "films", :action => "create", :via => "post"})
+          
+  # READ
+  match("/films", { :controller => "films", :action => "index", :via => "get"})
+  
+  match("/films/:id_from_path", { :controller => "films", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_film/:id_from_path", { :controller => "films", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_film/:id_from_path", { :controller => "films", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
   # Routes for the Podcast resource:
 
   # CREATE
