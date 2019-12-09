@@ -1,7 +1,7 @@
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of all shows
+      List of all articles
     </h1>
   </div>
 </div>
@@ -14,10 +14,10 @@
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h2>
-      Add a new show
+      Add a new article
     </h2>
 
-    <form action="/insert_show" method="post">
+    <form action="/insert_article" method="post">
       <div class="form-group">
         <label for="title_box">
           Title
@@ -27,14 +27,23 @@
       </div>
 
       <div class="form-group">
-        <label for="source_box">
-          Source
+        <label for="author_box">
+          Author
         </label>
 
-        <input type="text" id="source_box" name="source_from_query" class="form-control">
+        <input type="text" id="author_box" name="author_from_query" class="form-control">
       </div>
 
       <div class="form-group">
+        <label for="link_box">
+          Link
+        </label>
+
+        <input type="text" id="link_box" name="link_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+
         <input type="hidden" id="users_id_box" name="users_id_from_query" class="form-control">
       </div>
 
@@ -63,7 +72,7 @@
       </div>
 
       <button class="btn btn-block btn-outline-secondary">
-        Create show
+        Create article
       </button>
     </form>
   </div>
@@ -83,7 +92,11 @@
         </th>
 
         <th>
-          Source
+          Author
+        </th>
+
+        <th>
+          Link
         </th>
 
         <th>
@@ -114,45 +127,49 @@
         </th>
       </tr>
 
-      <% @shows.each do |show| %>
+      <% @articles.each do |article| %>
       <tr>
         <td>
-          <%= show.id %>
+          <%= article.id %>
         </td>
 
         <td>
-          <%= show.title %>
+          <%= article.title %>
         </td>
 
         <td>
-          <%= show.source %>
+          <%= article.author %>
         </td>
 
         <td>
-          <%= show.users_id %>
+          <%= article.link %>
         </td>
 
         <td>
-          <%= show.genre_topic %>
+          <%= article.users_id %>
         </td>
 
         <td>
-          <%= show.description %>
+          <%= article.genre_topic %>
         </td>
 
         <td>
-          <%= show.comments %>
+          <%= article.description %>
         </td>
 
         <td>
-          <%= time_ago_in_words(show.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(show.updated_at) %> ago
+          <%= article.comments %>
         </td>
 
         <td>
-          <a href="/shows/<%= show.id %>">
+          <%= time_ago_in_words(article.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(article.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/articles/<%= article.id %>">
             Show details
           </a>
         </td>

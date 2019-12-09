@@ -1,0 +1,161 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Article Details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/articles" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_article/<%= @article.id %>" class="btn btn-block btn-outline-secondary">
+          Delete article
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @article.title %>
+      </dd>
+
+      <dt>
+        Author
+      </dt>
+      <dd>
+        <%= @article.author %>
+      </dd>
+
+      <dt>
+        Link
+      </dt>
+      <dd>
+        <%= @article.link %>
+      </dd>
+
+      <dt>
+        Added By
+      </dt>
+      <dd>
+        <%= @article.users_id %>
+      </dd>
+
+      <dt>
+        Genre topic
+      </dt>
+      <dd>
+        <%= @article.genre_topic %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @article.description %>
+      </dd>
+
+      <dt>
+        Comments
+      </dt>
+      <dd>
+        <%= @article.comments %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@article.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@article.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit article
+    </h2>
+
+    <form action="/modify_article/<%= @article.id %>"  method="post" >
+      <div class="form-group">
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="title_from_query" class="form-control" value="<%= @article.title %>">
+      </div>
+
+      <div class="form-group">
+        <label for="author_box">
+          Author
+        </label>
+
+        <input type="text" id="author_box" name="author_from_query" class="form-control" value="<%= @article.author %>">
+      </div>
+
+      <div class="form-group">
+        <label for="link_box">
+          Link
+        </label>
+
+        <input type="text" id="link_box" name="link_from_query" class="form-control" value="<%= @article.link %>">
+      </div>
+
+      <div class="form-group">
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="users_id_from_query" class="form-control" value="<%= @article.users_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="genre_topic_box">
+          Genre topic
+        </label>
+
+        <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @article.genre_topic %>">
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="description_from_query" class="form-control" rows="3"><%= @article.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="comments_box">
+          Comments
+        </label>
+
+        <textarea id="comments_box" name="comments_from_query" class="form-control" rows="3"><%= @article.comments %></textarea>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update article
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

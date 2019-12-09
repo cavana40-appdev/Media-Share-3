@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Article resource:
+
+  # CREATE
+  match("/insert_article", { :controller => "articles", :action => "create", :via => "post"})
+          
+  # READ
+  match("/articles", { :controller => "articles", :action => "index", :via => "get"})
+  
+  match("/articles/:id_from_path", { :controller => "articles", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_article/:id_from_path", { :controller => "articles", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_article/:id_from_path", { :controller => "articles", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
   # Routes for the Show resource:
 
   # CREATE
