@@ -15,6 +15,34 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
+  <nav>
+    <% if @current_user == nil %>
+    <div>
+    <a href="/user_sign_up">
+    </a>
+    </div>
+
+     <div>
+    <a href="/user_sign_in">
+    </a>
+    </div>
+
+    <% else %>
+
+    <div>
+    <a href="users/<%= @current_user.username %>">
+    <%= @current_user.username %>
+    </a>
+    </div>
+
+     <div>
+    <a href="/user_sign_out">
+    Sign Out
+    </a>
+    </div>
+        <% end %>
+    </nav>
+    
   <body>
     <%= yield %>
   </body>
