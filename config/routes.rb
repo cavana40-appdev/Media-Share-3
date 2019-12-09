@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Podcast resource:
+
+  # CREATE
+  match("/insert_podcast", { :controller => "podcasts", :action => "create", :via => "post"})
+          
+  # READ
+  match("/podcasts", { :controller => "podcasts", :action => "index", :via => "get"})
+  
+  match("/podcasts/:id_from_path", { :controller => "podcasts", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_podcast/:id_from_path", { :controller => "podcasts", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_podcast/:id_from_path", { :controller => "podcasts", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
   # Routes for the Article resource:
 
   # CREATE
