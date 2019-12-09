@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Show resource:
+
+  # CREATE
+  match("/insert_show", { :controller => "shows", :action => "create", :via => "post"})
+          
+  # READ
+  match("/shows", { :controller => "shows", :action => "index", :via => "get"})
+  
+  match("/shows/:id_from_path", { :controller => "shows", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_show/:id_from_path", { :controller => "shows", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_show/:id_from_path", { :controller => "shows", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
   # Routes for the Book resource:
 
   # CREATE

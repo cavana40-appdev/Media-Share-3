@@ -1,0 +1,146 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Show Details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/shows" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_show/<%= @show.id %>" class="btn btn-block btn-outline-secondary">
+          Delete show
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Title
+      </dt>
+      <dd>
+        <%= @show.title %>
+      </dd>
+
+      <dt>
+        Source
+      </dt>
+      <dd>
+        <%= @show.source %>
+      </dd>
+
+      <dt>
+        Added By
+      </dt>
+      <dd>
+        <%= @show.users_id %>
+      </dd>
+
+      <dt>
+        Genre topic
+      </dt>
+      <dd>
+        <%= @show.genre_topic %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @show.description %>
+      </dd>
+
+      <dt>
+        Comments
+      </dt>
+      <dd>
+        <%= @show.comments %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@show.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@show.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit show
+    </h2>
+
+    <form action="/modify_show/<%= @show.id %>"  method="post" >
+      <div class="form-group">
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="title_from_query" class="form-control" value="<%= @show.title %>">
+      </div>
+
+      <div class="form-group">
+        <label for="source_box">
+          Source
+        </label>
+
+        <input type="text" id="source_box" name="source_from_query" class="form-control" value="<%= @show.source %>">
+      </div>
+
+      <div class="form-group">
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="users_id_from_query" class="form-control" value="<%= @show.users_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="genre_topic_box">
+          Genre topic
+        </label>
+
+        <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @show.genre_topic %>">
+      </div>
+
+      <div class="form-group">
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="description_from_query" class="form-control" rows="3"><%= @show.description %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="comments_box">
+          Comments
+        </label>
+
+        <textarea id="comments_box" name="comments_from_query" class="form-control" rows="3"><%= @show.comments %></textarea>
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update show
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
