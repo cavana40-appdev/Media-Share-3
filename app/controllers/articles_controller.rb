@@ -13,11 +13,12 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    user_id = @current_user.id
     @article = Article.new
     @article.title = params.fetch("title_from_query")
     @article.author = params.fetch("author_from_query")
     @article.link = params.fetch("link_from_query")
-    @article.users_id = params.fetch("users_id_from_query")
+    @article.users_id = session[:user_id]
     @article.genre_topic = params.fetch("genre_topic_from_query")
     @article.description = params.fetch("description_from_query")
     @article.comments = params.fetch("comments_from_query")

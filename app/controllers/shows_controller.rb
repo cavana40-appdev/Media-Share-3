@@ -13,10 +13,11 @@ class ShowsController < ApplicationController
   end
 
   def create
+    user_id = @current_user.id
     @show = Show.new
     @show.title = params.fetch("title_from_query")
     @show.source = params.fetch("source_from_query")
-    @show.users_id = params.fetch("users_id_from_query")
+    @show.users_id = session[:user_id]
     @show.genre_topic = params.fetch("genre_topic_from_query")
     @show.description = params.fetch("description_from_query")
     @show.comments = params.fetch("comments_from_query")

@@ -13,11 +13,12 @@ class BooksController < ApplicationController
   end
 
   def create
+    user_id = @current_user.id
     @book = Book.new
     @book.title = params.fetch("title_from_query")
     @book.author = params.fetch("author_from_query")
     @book.description = params.fetch("description_from_query")
-    @book.users_id = params.fetch("users_id_from_query")
+    @book.users_id = session[:user_id]
     @book.genre_topic = params.fetch("genre_topic_from_query")
     @book.comments = params.fetch("comments_from_query")
 

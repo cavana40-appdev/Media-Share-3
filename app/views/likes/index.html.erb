@@ -1,0 +1,166 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      List of all likes
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Add a new like
+    </h2>
+
+    <form action="/insert_like" method="post">
+      <div class="form-group">
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="users_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="films_id_box">
+          Films
+        </label>
+
+        <input type="text" id="films_id_box" name="films_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="shows_id_box">
+          Shows
+        </label>
+
+        <input type="text" id="shows_id_box" name="shows_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="podcasts_id_box">
+          Podcasts
+        </label>
+
+        <input type="text" id="podcasts_id_box" name="podcasts_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="articles_id_box">
+          Articles
+        </label>
+
+        <input type="text" id="articles_id_box" name="articles_id_from_query" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="books_id_box">
+          Books
+        </label>
+
+        <input type="text" id="books_id_box" name="books_id_from_query" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Create like
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Users
+        </th>
+
+        <th>
+          Films
+        </th>
+
+        <th>
+          Shows
+        </th>
+
+        <th>
+          Podcasts
+        </th>
+
+        <th>
+          Articles
+        </th>
+
+        <th>
+          Books
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @likes.each do |like| %>
+      <tr>
+        <td>
+          <%= like.id %>
+        </td>
+
+        <td>
+          <%= like.users_id %>
+        </td>
+
+        <td>
+          <%= like.films_id %>
+        </td>
+
+        <td>
+          <%= like.shows_id %>
+        </td>
+
+        <td>
+          <%= like.podcasts_id %>
+        </td>
+
+        <td>
+          <%= like.articles_id %>
+        </td>
+
+        <td>
+          <%= like.books_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(like.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(like.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/likes/<%= like.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

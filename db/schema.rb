@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_09_225636) do
+ActiveRecord::Schema.define(version: 2019_12_09_231129) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(version: 2019_12_09_225636) do
     t.string "genre_topic"
     t.text "description"
     t.text "comments"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "follow_requests", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "sender_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "films_id"
+    t.integer "shows_id"
+    t.integer "podcasts_id"
+    t.integer "articles_id"
+    t.integer "books_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

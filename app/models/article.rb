@@ -15,4 +15,11 @@
 #
 
 class Article < ApplicationRecord
+belongs_to :users, :class_name => "User"
+has_many :likes, :foreign_key => "articles_id", :dependent => :destroy
+
+def poster
+    poster_username = User.where({ :id => self.users_id }).pluck(:username)
+    return poster_username[0]
+  end
 end

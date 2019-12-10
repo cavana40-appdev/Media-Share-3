@@ -13,11 +13,12 @@ class PodcastsController < ApplicationController
   end
 
   def create
+    user_id = @current_user.id
     @podcast = Podcast.new
     @podcast.title = params.fetch("title_from_query")
     @podcast.source = params.fetch("source_from_query")
     @podcast.favorite_episode = params.fetch("favorite_episode_from_query")
-    @podcast.users_id = params.fetch("users_id_from_query")
+    @podcast.users_id = session[:user_id]
     @podcast.genre_topic = params.fetch("genre_topic_from_query")
     @podcast.description = params.fetch("description_from_query")
     @podcast.comments = params.fetch("comments_from_query")

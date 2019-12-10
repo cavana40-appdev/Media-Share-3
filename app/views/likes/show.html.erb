@@ -1,0 +1,146 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Like #<%= @like.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/likes" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_like/<%= @like.id %>" class="btn btn-block btn-outline-secondary">
+          Delete like
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Users
+      </dt>
+      <dd>
+        <%= @like.users_id %>
+      </dd>
+
+      <dt>
+        Films
+      </dt>
+      <dd>
+        <%= @like.films_id %>
+      </dd>
+
+      <dt>
+        Shows
+      </dt>
+      <dd>
+        <%= @like.shows_id %>
+      </dd>
+
+      <dt>
+        Podcasts
+      </dt>
+      <dd>
+        <%= @like.podcasts_id %>
+      </dd>
+
+      <dt>
+        Articles
+      </dt>
+      <dd>
+        <%= @like.articles_id %>
+      </dd>
+
+      <dt>
+        Books
+      </dt>
+      <dd>
+        <%= @like.books_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@like.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@like.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h2>
+      Edit like
+    </h2>
+
+    <form action="/modify_like/<%= @like.id %>"  method="post" >
+      <div class="form-group">
+        <label for="users_id_box">
+          Users
+        </label>
+
+        <input type="text" id="users_id_box" name="users_id_from_query" class="form-control" value="<%= @like.users_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="films_id_box">
+          Films
+        </label>
+
+        <input type="text" id="films_id_box" name="films_id_from_query" class="form-control" value="<%= @like.films_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="shows_id_box">
+          Shows
+        </label>
+
+        <input type="text" id="shows_id_box" name="shows_id_from_query" class="form-control" value="<%= @like.shows_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="podcasts_id_box">
+          Podcasts
+        </label>
+
+        <input type="text" id="podcasts_id_box" name="podcasts_id_from_query" class="form-control" value="<%= @like.podcasts_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="articles_id_box">
+          Articles
+        </label>
+
+        <input type="text" id="articles_id_box" name="articles_id_from_query" class="form-control" value="<%= @like.articles_id %>">
+      </div>
+
+      <div class="form-group">
+        <label for="books_id_box">
+          Books
+        </label>
+
+        <input type="text" id="books_id_box" name="books_id_from_query" class="form-control" value="<%= @like.books_id %>">
+      </div>
+
+      <button class="btn btn-block btn-outline-secondary">
+        Update like
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

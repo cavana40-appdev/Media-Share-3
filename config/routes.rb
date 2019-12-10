@@ -2,6 +2,44 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Follow request resource:
+
+  # CREATE
+  match("/insert_follow_request", { :controller => "follow_requests", :action => "create", :via => "post"})
+          
+  # READ
+  match("/follow_requests", { :controller => "follow_requests", :action => "index", :via => "get"})
+  
+  match("/follow_requests/:id_from_path", { :controller => "follow_requests", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_follow_request/:id_from_path", { :controller => "follow_requests", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_follow_request/:id_from_path", { :controller => "follow_requests", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
+  # Routes for the Like resource:
+
+  # CREATE
+  match("/insert_like", { :controller => "likes", :action => "create", :via => "post"})
+          
+  # READ
+  match("/likes", { :controller => "likes", :action => "index", :via => "get"})
+  
+  match("/likes/:id_from_path", { :controller => "likes", :action => "show", :via => "get"})
+  
+  # UPDATE
+  
+  match("/modify_like/:id_from_path", { :controller => "likes", :action => "update", :via => "post"})
+  
+  # DELETE
+  match("/delete_like/:id_from_path", { :controller => "likes", :action => "destroy", :via => "get"})
+
+  #------------------------------
+
   # Routes for the Film resource:
 
   # CREATE

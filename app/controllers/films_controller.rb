@@ -13,10 +13,11 @@ class FilmsController < ApplicationController
   end
 
   def create
+    user_id = @current_user.id
     @film = Film.new
     @film.title = params.fetch("title_from_query")
     @film.source = params.fetch("source_from_query")
-    @film.users_id = params.fetch("users_id_from_query")
+    @film.users_id = session[:user_id]
     @film.genre_topic = params.fetch("genre_topic_from_query")
     @film.description = params.fetch("description_from_query")
     @film.comments = params.fetch("comments_from_query")

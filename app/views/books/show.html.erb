@@ -41,10 +41,10 @@
       </dd>
 
       <dt>
-        Users
+        Added By
       </dt>
       <dd>
-        <%= @book.users_id %>
+        <%= @book.poster %>
       </dd>
 
       <dt>
@@ -113,11 +113,8 @@
       </div>
 
       <div class="form-group">
-        <label for="users_id_box">
-          Users
-        </label>
 
-        <input type="text" id="users_id_box" name="users_id_from_query" class="form-control" value="<%= @book.users_id %>">
+        <input type="hidden" id="users_id_box" name="users_id_from_query" class="form-control" value="<%= @book.users_id %>">
       </div>
 
       <div class="form-group">
