@@ -15,4 +15,8 @@ class User < ApplicationRecord
   validates :email, :presence => true
   validates(:username, { :presence => true, :case_sensitive => false })
   has_secure_password
+
+  def likes
+    return Like.where({ :users_id => self.id })
+  end
 end

@@ -20,4 +20,8 @@ belongs_to :shows, :required => false, :class_name => "Show"
 belongs_to :articles, :required => false, :class_name => "Article"
 belongs_to :podcasts, :required => false, :class_name => "Podcast"
 belongs_to :films, :required => false, :class_name => "Film"
+
+def fan
+    return User.where({ :id => self.users_id }).at(0)
+  end
 end

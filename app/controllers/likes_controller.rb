@@ -14,7 +14,7 @@ class LikesController < ApplicationController
 
   def create
     @like = Like.new
-    @like.users_id = params.fetch("users_id_from_query")
+    @like.users_id = @current_user.id
     @like.films_id = params.fetch("films_id_from_query")
     @like.shows_id = params.fetch("shows_id_from_query")
     @like.podcasts_id = params.fetch("podcasts_id_from_query")
@@ -33,7 +33,7 @@ class LikesController < ApplicationController
     the_id = params.fetch("id_from_path")
     @like = Like.where({ :id => the_id }).at(0)
 
-    @like.users_id = params.fetch("users_id_from_query")
+    @like.users_id = @current_user.id
     @like.films_id = params.fetch("films_id_from_query")
     @like.shows_id = params.fetch("shows_id_from_query")
     @like.podcasts_id = params.fetch("podcasts_id_from_query")
