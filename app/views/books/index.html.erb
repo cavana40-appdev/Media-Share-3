@@ -180,17 +180,10 @@
         </td>
 
         <td>
-        <% like = Like.where({:users_id => @current_user.id, :books_id => book.id}).at(0)%>
-         <% if like.present? %>
-  <a href="/delete_like/<% book.id %>">
-  Remove Bookmark
-  </a>
-  <% else %>
       <form action="insert_like" method="post">
       <input type= "hidden" value="<%= book.id %>" name="id_from_query">
       <button>Bookmark</button>
    </form>
-   <% end %>
         </td>
 
         <td>

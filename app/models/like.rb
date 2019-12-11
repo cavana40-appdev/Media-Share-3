@@ -26,22 +26,57 @@ def fan
   end
 
 def book
-    return Book.where({ :id => self.books_id }).at(0)
+    book_title = Book.where({ :id => self.books_id }).pluck(:title)
+    return book_title[0].to_s
+  end
+
+  def book_poster
+   book_user = Book.where({:id => self.books_id}).pluck(:users_id)
+   poster = User.where({:id => book_user}).pluck(:username)
+   return poster[0].to_s
   end
 
   def film
-    return Film.where({ :id => self.films_id }).at(0)
+    film_title = Film.where({ :id => self.films_id }).pluck(:title)
+    return film_title[0].to_s
+  end
+
+  def film_poster
+   film_user = Film.where({:id => self.films_id}).pluck(:users_id)
+   poster = User.where({:id => film_user}).pluck(:username)
+   return poster[0].to_s
   end
 
   def podcast
-    return Podcast.where({ :id => self.podcasts_id }).at(0)
+    podcast_title = Podcast.where({ :id => self.podcasts_id }).pluck(:title)
+    return podcast_title[0].to_s
   end
 
-  def shows
-    return Show.where({ :id => self.shows_id }).at(0)
+  def podcast_poster
+   podcast_user = Podcast.where({:id => self.podcasts_id}).pluck(:users_id)
+   poster = User.where({:id => podcast_user}).pluck(:username)
+   return poster[0].to_s
+  end
+
+  def show
+    show_title = Show.where({ :id => self.shows_id }).pluck(:title)
+    return show_title[0].to_s
+  end
+
+  def show_poster
+   show_user = Show.where({:id => self.shows_id}).pluck(:users_id)
+   poster = User.where({:id => show_user}).pluck(:username)
+   return poster[0].to_s
   end
 
   def article
-    return Article.where({ :id => self.articles_id }).at(0)
+    article_title = Article.where({ :id => self.articles_id }).pluck(0)
+    return article_title[0].to_s
+  end
+
+  def article_poster
+   article_user = Film.where({:id => self.articles_id}).pluck(:users_id)
+   poster = User.where({:id => article_user}).pluck(:username)
+   return poster[0].to_s
   end
 end

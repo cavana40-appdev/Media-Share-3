@@ -41,7 +41,22 @@ List of Bookmarks
       <% @likes.each do |like| %>
       <tr>
         <td>
-          <%= like.id %>
+         <% if %>
+         <% like.books_id.present? %>
+         <%= like.book %>
+         <% elsif %>
+        <% like.films_id.present? %>
+          <%= like.film %>
+          <% elsif %>
+        <% like.articles_id.present? %>
+         <%= like.article %>
+          <% elsif %>
+        <% like.shows_id.present? %>
+          <%= like.show %>
+          <% else %>
+        <% like.podcasts_id.present? %>
+          <%= like.podcast %>
+          <% end %>
         </td>
 
         <td>
@@ -65,7 +80,22 @@ List of Bookmarks
         </td>
 
         <td>
-          <%= like.users_id %>
+               <% if %>
+         <% like.books_id.present? %>
+         <%= like.book_poster %>
+         <% elsif %>
+        <% like.films_id.present? %>
+          <%= like.film_poster %>
+          <% elsif %>
+        <% like.articles_id.present? %>
+         <%= like.article_poster %>
+          <% elsif %>
+        <% like.shows_id.present? %>
+          <%= like.show_poster %>
+          <% else %>
+        <% like.podcasts_id.present? %>
+          <%= like.podcast_poster %>
+          <% end %>
         </td>
 
         <td>
