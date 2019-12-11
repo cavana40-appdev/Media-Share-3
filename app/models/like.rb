@@ -70,7 +70,7 @@ def book
   end
 
   def article
-    article_title = Article.where({ :id => self.articles_id }).pluck(0)
+    article_title = Article.where({ :id => self.articles_id }).pluck(:title)
     return article_title[0].to_s
   end
 

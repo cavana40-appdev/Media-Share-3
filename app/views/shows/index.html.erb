@@ -133,6 +133,10 @@
         </th>
 
         <th>
+          Bookmark
+        </th>
+
+        <th>
         </th>
       </tr>
 
@@ -171,6 +175,13 @@
         </td>
         <td>
           <%= time_ago_in_words(show.updated_at) %> ago
+        </td>
+
+        <td>
+      <form action="insert_like" method="post">
+      <input type= "hidden" value="<%= show.id %>" name="shows_id_from_query">
+      <button>Bookmark</button>
+   </form>
         </td>
 
         <td>
