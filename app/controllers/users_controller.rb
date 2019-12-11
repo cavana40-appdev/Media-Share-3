@@ -22,6 +22,10 @@ class UsersController < ApplicationController
       redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
     end
   end
+
+  def index
+    render("users/profile.html.erb")
+  end
     
   def edit_registration_form
     render({ :template => "users/edit_profile.html.erb" })

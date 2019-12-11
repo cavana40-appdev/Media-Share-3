@@ -15,11 +15,11 @@ class LikesController < ApplicationController
   def create
     @like = Like.new
     @like.users_id = @current_user.id
-    @like.films_id = params.fetch("films_id_from_query")
-    @like.shows_id = params.fetch("shows_id_from_query")
-    @like.podcasts_id = params.fetch("podcasts_id_from_query")
-    @like.articles_id = params.fetch("articles_id_from_query")
-    @like.books_id = params.fetch("books_id_from_query")
+    @like.films_id = params.fetch("films_id_from_query", nil)
+    @like.shows_id = params.fetch("shows_id_from_query", nil)
+    @like.podcasts_id = params.fetch("podcasts_id_from_query", nil)
+    @like.articles_id = params.fetch("articles_id_from_query", nil)
+    @like.books_id = params.fetch("books_id_from_query", nil)
 
     if @like.valid?
       @like.save

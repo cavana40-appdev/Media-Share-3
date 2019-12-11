@@ -24,4 +24,24 @@ belongs_to :films, :required => false, :class_name => "Film"
 def fan
     return User.where({ :id => self.users_id }).at(0)
   end
+
+def book
+    return Book.where({ :id => self.books_id }).at(0)
+  end
+
+  def film
+    return Film.where({ :id => self.films_id }).at(0)
+  end
+
+  def podcast
+    return Podcast.where({ :id => self.podcasts_id }).at(0)
+  end
+
+  def shows
+    return Show.where({ :id => self.shows_id }).at(0)
+  end
+
+  def article
+    return Article.where({ :id => self.articles_id }).at(0)
+  end
 end

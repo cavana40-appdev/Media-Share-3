@@ -8,7 +8,7 @@
 
 <div>
 <h2>
-List of all bookmarks
+List of Bookmarks
 </h2>
 </div>
 
@@ -35,6 +35,7 @@ List of all bookmarks
 
         <th>
         </th>
+
       </tr>
 
       <% @likes.each do |like| %>
@@ -44,7 +45,23 @@ List of all bookmarks
         </td>
 
         <td>
-          <%= like.books_id %>
+        <% if %>
+         <% like.book.present? %>
+         Book
+         <% elsif %>
+        <% like.film.present? %>
+          Film
+          <% elsif %>
+        <% like.article.present? %>
+          Article
+          <% elsif %>
+        <% like.shows.present? %>
+          Show
+          <% else %>
+        <% like.podcast.present? %>
+          Podcast
+          <% end %>
+
         </td>
 
         <td>
@@ -56,72 +73,14 @@ List of all bookmarks
         </td>
 
         <td>
-          <a href="/likes/<%= like.id %>">
-            Show details
-          </a>
+        <a href="/delete_like/<%= like.id %>">
+          Remove Bookmark
+        </a>
         </td>
+
       </tr>
       <% end %>
     </table>
-  </div>
-</div>
-
-<div class="row mb-3">
-  <div class="col-md-8 offset-md-2">
-    <h2>
-      Add a new bookmark
-    </h2>
-
-    <form action="/insert_like" method="post">
-      <div class="form-group">
-
-        <input type="hidden" id="users_id_box" name="users_id_from_query" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="films_id_box">
-          Films
-        </label>
-
-        <input type="text" id="films_id_box" name="films_id_from_query" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="shows_id_box">
-          Shows
-        </label>
-
-        <input type="text" id="shows_id_box" name="shows_id_from_query" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="podcasts_id_box">
-          Podcasts
-        </label>
-
-        <input type="text" id="podcasts_id_box" name="podcasts_id_from_query" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="articles_id_box">
-          Articles
-        </label>
-
-        <input type="text" id="articles_id_box" name="articles_id_from_query" class="form-control">
-      </div>
-
-      <div class="form-group">
-        <label for="books_id_box">
-          Books
-        </label>
-
-        <input type="text" id="books_id_box" name="books_id_from_query" class="form-control">
-      </div>
-
-      <button class="btn btn-block btn-outline-secondary">
-        Create like
-      </button>
-    </form>
   </div>
 </div>
 

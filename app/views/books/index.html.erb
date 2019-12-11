@@ -1,7 +1,30 @@
+<nav>
+<div>
+    <a href="/articles">
+    All Articles
+    </a>
+    </div>
+    <div>
+    <a href="/films">
+    All Films
+    </a>
+    </div>
+    <div>
+    <a href="/podcasts">
+    All Podcasts
+    </a>
+    </div>
+    <div>
+    <a href="/shows">
+    All Shows
+    </a>
+    </div>
+    </nav>
+
 <div class="row mb-3">
   <div class="col-md-12">
     <h1>
-      List of all books
+      Book Recommendations
     </h1>
   </div>
 </div>
@@ -112,6 +135,10 @@
         </th>
 
         <th>
+          Bookmark
+        </th>
+
+        <th>
         </th>
       </tr>
 
@@ -150,6 +177,20 @@
         </td>
         <td>
           <%= time_ago_in_words(book.updated_at) %> ago
+        </td>
+
+        <td>
+        <% like = Like.where({:users_id => @current_user.id, :books_id => book.id}).at(0)%>
+         <% if like.present? %>
+  <a href="/delete_like/<% book.id %>">
+  Remove Bookmark
+  </a>
+  <% else %>
+      <form action="insert_like" method="post">
+      <input type= "hidden" value="<%= book.id %>" name="id_from_query">
+      <button>Bookmark</button>
+   </form>
+   <% end %>
         </td>
 
         <td>
