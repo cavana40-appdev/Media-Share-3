@@ -46,19 +46,19 @@ List of Bookmarks
 
         <td>
         <% if %>
-         <% like.book.present? %>
+         <% like.books_id.present? %>
          Book
          <% elsif %>
-        <% like.film.present? %>
+        <% like.films_id.present? %>
           Film
           <% elsif %>
-        <% like.article.present? %>
+        <% like.articles_id.present? %>
           Article
           <% elsif %>
-        <% like.shows.present? %>
+        <% like.shows_id.present? %>
           Show
           <% else %>
-        <% like.podcast.present? %>
+        <% like.podcasts_id.present? %>
           Podcast
           <% end %>
 
@@ -82,5 +82,5 @@ List of Bookmarks
       <% end %>
     </table>
   </div>
-</div>
+
 

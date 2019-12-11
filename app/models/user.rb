@@ -19,4 +19,12 @@ class User < ApplicationRecord
   def likes
     return Like.where({ :users_id => self.id })
   end
+  def book_likes
+    array_of_book_likes = self.likes.pluck(:books_id)
+    return Book.where({:id => array_of_book_likes})
+  end
+  def show_likes
+    array_of_show_likes = self.likes.pluck(:shows_id)
+    return Show.where({:id => array_of_show_likes})
+  end
 end
