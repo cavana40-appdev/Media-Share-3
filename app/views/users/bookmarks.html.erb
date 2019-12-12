@@ -65,13 +65,12 @@ List of Bookmarks
 
         <th>
         </th>
-
       </tr>
 
-      <% @likes.each do |like| %>
-      <tr>
-        <td>
-         <% if %>
+<% @current_user.likes.each do |like| %>
+  <tr>
+  <td>
+  <% if %>
          <% like.books_id.present? %>
          <%= like.book %>
          <% elsif %>
@@ -87,10 +86,9 @@ List of Bookmarks
         <% like.podcasts_id.present? %>
           <%= like.podcast %>
           <% end %>
-        </td>
-
+          </td>
         <td>
-        <% if %>
+          <% if %>
          <% like.books_id.present? %>
          Book
          <% elsif %>
@@ -106,10 +104,8 @@ List of Bookmarks
         <% like.podcasts_id.present? %>
           Podcast
           <% end %>
-
         </td>
-
-        <td>
+<td>
                <% if %>
          <% like.books_id.present? %>
          <%= like.book_poster %>
@@ -131,7 +127,6 @@ List of Bookmarks
         <td>
           <%= time_ago_in_words(like.created_at) %> ago
         </td>
-
         <td>
         <a href="/delete_like/<%= like.id %>">
           Remove Bookmark
@@ -139,6 +134,9 @@ List of Bookmarks
         </td>
 
       </tr>
-      <% end %>
-    </table>
+          <% end %>
+          </table>
   </div>
+
+
+ 

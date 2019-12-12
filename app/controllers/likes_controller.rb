@@ -34,11 +34,11 @@ class LikesController < ApplicationController
     @like = Like.where({ :id => the_id }).at(0)
 
     @like.users_id = @current_user.id
-    @like.films_id = params.fetch("id_from_query")
-    @like.shows_id = params.fetch("id_from_query")
-    @like.podcasts_id = params.fetch("id_from_query")
-    @like.articles_id = params.fetch("id_from_query")
-    @like.books_id = params.fetch("id_from_query")
+    @like.films_id = params.fetch("id_from_query", nil)
+    @like.shows_id = params.fetch("id_from_query", nil)
+    @like.podcasts_id = params.fetch("id_from_query", nil)
+    @like.articles_id = params.fetch("id_from_query", nil)
+    @like.books_id = params.fetch("id_from_query", nil)
 
     if @like.valid?
       @like.save

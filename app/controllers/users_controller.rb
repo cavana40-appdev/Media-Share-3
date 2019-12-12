@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     render({ :template => "user_sessions/sign_up.html.erb" })
   end
 
+  def bookmarks
+    render({ :template => "users/bookmarks.html.erb"})
+  end
+
   def create
     @user = User.new
     @user.email = params.fetch("email_from_query")
@@ -21,10 +25,6 @@ class UsersController < ApplicationController
     else
       redirect_to("/user_sign_up", { :alert => "User account failed to create successfully."})
     end
-  end
-
-  def index
-    render("users/profile.html.erb")
   end
     
   def edit_registration_form
