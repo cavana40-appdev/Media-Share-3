@@ -1,4 +1,26 @@
-<div class="row mb-3">
+<nav>
+<div>
+    <a href="/articles">
+    All Articles
+    </a>
+    </div>
+    <div>
+    <a href="/books">
+    All Books
+    </a>
+    </div>
+    <div>
+    <a href="/films">
+    All Films
+    </a>
+    </div>
+    <div>
+    <a href="/podcasts">
+    All Podcasts
+    </a>
+    </div>
+    </nav>
+    <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <h1>
       Show Details
@@ -41,7 +63,7 @@
       </dd>
 
       <dt>
-        Genre topic
+        Genre
       </dt>
       <dd>
         <%= @show.genre_topic %>
@@ -101,7 +123,7 @@
           Source
         </label>
 
-        <input type="text" id="source_box" name="source_from_query" class="form-control" value="<%= @show.source %>">
+        <input type="text" id="source_box" name="source_from_query" class="form-control" value="<%= @show.source %>" placeholder="Netflix, Amazon Prime, etc...">
       </div>
 
       <div class="form-group">
@@ -111,11 +133,32 @@
 
       <div class="form-group">
         <label for="genre_topic_box">
-          Genre topic
+          Genre
         </label>
 
-        <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @show.genre_topic %>">
-      </div>
+        <select id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @show.genre_topic %>">
+      <option value="Action & Adventure">Action & Adventure</option>
+        <option value="Animation">Animation</option>
+        <option value="Biography">Biography</option>
+        <option value="Classics">Classics</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Documentary">Documentary</option>
+        <option value="Drama">Drama</option>
+        <option value="Family">Family</option>
+        <option value="Film Noir">Film Noir</option>
+        <option value="History">History</option>
+        <option value="Horror">Horror</option>
+        <option value="International">International</option>
+        <option value="Indie & Art House">Indie & Art House</option>
+        <option value="Musical">Musical</option>
+        <option value="Mystery">Mystery</option>
+        <option value="Romance">Romance</option>
+        <option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option>
+        <option value="Short Film">Short Film</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Western">Western</option>
+        </select>
+        </div>
 
       <div class="form-group">
         <label for="description_box">

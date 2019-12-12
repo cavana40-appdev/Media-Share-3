@@ -70,7 +70,7 @@
       </dd>
 
       <dt>
-        Genre topic
+        Genre/Topic
       </dt>
       <dd>
         <%= @podcast.genre_topic %>
@@ -130,7 +130,7 @@
           Source
         </label>
 
-        <input type="text" id="source_box" name="source_from_query" class="form-control" value="<%= @podcast.source %>">
+        <input type="text" id="source_box" name="source_from_query" class="form-control" value="<%= @podcast.source %>" placeholder="How did you listen? Spotify? Apple?"">
       </div>
 
       <div class="form-group">
@@ -148,11 +148,31 @@
 
       <div class="form-group">
         <label for="genre_topic_box">
-          Genre topic
+          Genre/Topic
         </label>
 
-        <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @podcast.genre_topic %>">
-      </div>
+        <select id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @podcast.genre_topic %>">
+      <option value="Arts">Arts</option>
+        <option value="Business & Investing">Business & Investing</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Education">Education</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Government">Government</option>
+         <option value="Health & Fitness">Health & Fitness</option>
+        <option value="History">History</option>
+        <option value="Kids & Family">Kids & Family</option>
+        <option value="Leisure">Leisure</option>
+        <option value="Music">Music</option>
+        <option value="News">News</option>
+        <option value="Religion & Spirituality">Religion & Spirituality</option>
+        <option value="Science">Science</option>
+        <option value="Society & Culture">Society & Culture</option>
+        <option value="Sports">Sports</option>
+        <option value="Technology">Technology</option>
+        <option value="True Crime">True Crime</option>
+        <option value="TV & Film">TV & Film</option>
+        </select>
+        </div>
 
       <div class="form-group">
         <label for="description_box">

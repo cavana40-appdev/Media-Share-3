@@ -71,23 +71,15 @@
 
       <div class="form-group">
         <label for="genre_topic_box">
-          Genre topic
+          Topic
         </label>
 
         <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="description_box">
-          Description
-        </label>
-
-        <textarea id="description_box" name="description_from_query" class="form-control" rows="3"></textarea>
-      </div>
-
-      <div class="form-group">
         <label for="comments_box">
-          Comments
+          Notes
         </label>
 
         <textarea id="comments_box" name="comments_from_query" class="form-control" rows="3"></textarea>
@@ -105,9 +97,6 @@
   <div class="col-md-12">
     <table class="table">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Title
@@ -126,15 +115,11 @@
         </th>
 
         <th>
-          Genre topic
+          Topic
         </th>
 
         <th>
-          Description
-        </th>
-
-        <th>
-          Comments
+          Notes
         </th>
 
         <th>
@@ -155,9 +140,6 @@
 
       <% @articles.each do |article| %>
       <tr>
-        <td>
-          <%= article.id %>
-        </td>
 
         <td>
           <%= article.title %>
@@ -177,10 +159,6 @@
 
         <td>
           <%= article.genre_topic %>
-        </td>
-
-        <td>
-          <%= article.description %>
         </td>
 
         <td>

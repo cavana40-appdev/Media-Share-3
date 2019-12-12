@@ -70,7 +70,7 @@
       </dd>
 
       <dt>
-        Genre topic
+        Category
       </dt>
       <dd>
         <%= @book.genre_topic %>
@@ -144,8 +144,21 @@
           Genre topic
         </label>
 
-        <input type="text" id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @book.genre_topic %>">
-      </div>
+        <select id="genre_topic_box" name="genre_topic_from_query" class="form-control" value="<%= @book.genre_topic %>">
+      <option value="Arts & Photography">Arts & Photography</option>
+        <option value="Biographies & Memoirs">Biographies & Memoirs</option>
+        <option value="Business & Investing">Business & Investing</option>
+        <option value="Children Books">Children Books</option>
+        <option value="Cookbooks, Food & Wine">Cookbooks, Food & Wine</option>
+        <option value="History">History</option>
+        <option value="Literature & Fiction">Literature & Fiction</option>
+        <option value="Mystery & Suspense">Mystery & Suspense</option>
+        <option value="Romance">Romance</option>
+        <option value="Fantasy">Sci-Fi & Fantasy</option>
+        <option value="Young Adult">Young Adult</option>
+        <option value="Other">Other</option>
+        </select>
+        </div>
 
       <div class="form-group">
         <label for="comments_box">

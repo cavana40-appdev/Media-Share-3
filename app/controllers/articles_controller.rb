@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
     @article.link = params.fetch("link_from_query")
     @article.users_id = session[:user_id]
     @article.genre_topic = params.fetch("genre_topic_from_query")
-    @article.description = params.fetch("description_from_query")
     @article.comments = params.fetch("comments_from_query")
 
     if @article.valid?
@@ -40,7 +39,6 @@ class ArticlesController < ApplicationController
     @article.link = params.fetch("link_from_query")
     @article.users_id = params.fetch("users_id_from_query")
     @article.genre_topic = params.fetch("genre_topic_from_query")
-    @article.description = params.fetch("description_from_query")
     @article.comments = params.fetch("comments_from_query")
 
     if @article.valid?

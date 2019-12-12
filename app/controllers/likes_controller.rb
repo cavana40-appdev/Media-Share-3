@@ -23,9 +23,9 @@ class LikesController < ApplicationController
 
     if @like.valid?
       @like.save
-      redirect_to("/likes", { :notice => "Like created successfully." })
+      redirect_to("/", { :notice => "Bookmark created successfully." })
     else
-      redirect_to("/likes", { :notice => "Like failed to create successfully." })
+      redirect_to("/", { :notice => "Bookmark failed to create successfully." })
     end
   end
 
@@ -42,9 +42,9 @@ class LikesController < ApplicationController
 
     if @like.valid?
       @like.save
-      redirect_to("/likes/#{@like.id}", { :notice => "Like updated successfully."} )
+      redirect_to("/likes/#{@like.id}", { :notice => "Bookmark updated successfully."} )
     else
-      redirect_to("/likes/#{@like.id}", { :alert => "Like failed to update successfully." })
+      redirect_to("/likes/#{@like.id}", { :alert => "Bookmark failed to update successfully." })
     end
   end
 
@@ -54,6 +54,6 @@ class LikesController < ApplicationController
 
     @like.destroy
 
-    redirect_to("/likes", { :notice => "Like deleted successfully."} )
+    redirect_to("/", { :notice => "Bookmark deleted successfully."} )
   end
 end
