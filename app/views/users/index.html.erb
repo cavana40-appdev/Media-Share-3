@@ -1,0 +1,54 @@
+<nav>
+<div>
+    <a href="/articles">
+    All Articles
+    </a>
+    </div>
+     <div>
+    <a href="/books">
+    All Books
+    </a>
+    </div>
+    <div>
+    <a href="/films">
+    All Films
+    </a>
+    </div>
+    <div>
+    <a href="/podcasts">
+    All Podcasts
+    </a>
+    </div>
+    <div>
+    <a href="/shows">
+    All Shows
+    </a>
+    </div>
+    </nav>
+    <hr>
+    <h1> List of all users </h1>
+
+<div class="row mb-3">
+  <div class="col-md-4">
+    <table class="table">
+      <tr>
+
+        <th>
+          Name
+        </th>
+        <th>
+        </th>
+        </tr>
+ <% @users.each do |user| %>
+      <tr>
+
+        <td>
+          <%= user.username %>
+        </td>
+        <td>
+          <a href="/users/<%= user.username %>">
+            Show details
+          </a>
+        </td>
+        </tr>
+        <% end %>

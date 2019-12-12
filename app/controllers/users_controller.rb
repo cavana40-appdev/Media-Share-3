@@ -9,6 +9,18 @@ class UsersController < ApplicationController
     render({ :template => "users/bookmarks.html.erb"})
   end
 
+  def index
+   @users = User.all.order({:username => :asc})
+   render({ :template => "users/index.html.erb"})
+  end
+
+  def show
+    the_username = params.fetch(:the_username)
+    @user = User.where({ :username => the_username }).at(0)
+    
+    render({ :template => "users/show.html.erb" })
+  end
+
   def create
     @user = User.new
     @user.email = params.fetch("email_from_query")

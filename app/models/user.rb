@@ -60,4 +60,20 @@ class User < ApplicationRecord
     film_title = film_likes.pluck(:title)
     return film_title[0].to_s
   end
+
+  def own_books
+    return Book.where({:users_id => self.id})
+  end
+  def own_articles
+    return Article.where({:users_id => self.id})
+  end
+  def own_films
+    return Film.where({:users_id => self.id})
+  end
+   def own_podcasts
+    return Podcast.where({:users_id => self.id})
+  end
+  def own_shows
+    return Show.where({:users_id => self.id})
+  end
 end

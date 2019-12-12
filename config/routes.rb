@@ -126,6 +126,10 @@ Rails.application.routes.draw do
   match("/user_verify_credentials", { :controller => "user_sessions", :action => "add_cookie", :via => "post"})
   
   match("/", { :controller => "users", :action => "bookmarks", :via => "get" })
+
+  match("/users", { :controller => "users", :action => "index", :via => "get" })
+
+  match("/users/:the_username", { :controller => "users", :action => "show", :via => "get" })
   
   # Route for signing out
   

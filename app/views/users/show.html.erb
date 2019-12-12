@@ -1,0 +1,405 @@
+<nav>
+<div>
+    <a href="/articles">
+    All Articles
+    </a>
+    </div>
+     <div>
+    <a href="/books">
+    All Books
+    </a>
+    </div>
+    <div>
+    <a href="/films">
+    All Films
+    </a>
+    </div>
+    <div>
+    <a href="/podcasts">
+    All Podcasts
+    </a>
+    </div>
+    <div>
+    <a href="/shows">
+    All Shows
+    </a>
+    </div>
+    </nav>
+
+    <hr>
+
+    <h1> <%= @user.username %>'s Recommendations </h1>
+
+<hr>
+
+<h2> Articles </h2>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Link
+        </th>
+
+        <th>
+          Topic
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @user.own_articles.each do |article| %>
+      <tr>
+
+        <td>
+          <%= article.title %>
+        </td>
+
+        <td>
+          <%= article.author %>
+        </td>
+
+        <td>
+          <%= article.link %>
+        </td>
+
+        <td>
+          <%= article.genre_topic %>
+        </td>
+
+        <td>
+          <%= article.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(article.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(article.updated_at) %> ago
+        </td>
+
+       
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+
+<h2> Books </h2>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Author
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Comments
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @user.own_books.each do |book| %>
+      <tr>
+
+        <td>
+          <%= book.title %>
+        </td>
+
+        <td>
+          <%= book.author %>
+        </td>
+
+        <td>
+          <%= book.description %>
+        </td>
+
+        <td>
+          <%= book.genre_topic %>
+        </td>
+
+        <td>
+          <%= book.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(book.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(book.updated_at) %> ago
+        </td>
+        
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<h2> Films </h2>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Source
+        </th>
+
+        <th>
+          Genre
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Comments
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @user.own_films.each do |film| %>
+      <tr>
+
+        <td>
+          <%= film.title %>
+        </td>
+
+        <td>
+          <%= film.source %>
+        </td>
+
+        <td>
+          <%= film.genre_topic %>
+        </td>
+
+        <td>
+          <%= film.description %>
+        </td>
+
+        <td>
+          <%= film.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(film.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(film.updated_at) %> ago
+        </td>
+      
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<h2> Podcasts </h2>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Source
+        </th>
+
+        <th>
+          Favorite episode
+        </th>
+
+        <th>
+          Genre topic
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Comments
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @user.own_podcasts.each do |podcast| %>
+      <tr>
+
+        <td>
+          <%= podcast.title %>
+        </td>
+
+        <td>
+          <%= podcast.source %>
+        </td>
+
+        <td>
+          <%= podcast.favorite_episode %>
+        </td>
+
+        <td>
+          <%= podcast.genre_topic %>
+        </td>
+
+        <td>
+          <%= podcast.description %>
+        </td>
+
+        <td>
+          <%= podcast.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(podcast.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(podcast.updated_at) %> ago
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<h2> Shows </h2>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Source
+        </th>
+
+        <th>
+          Genre topic
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Comments
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+      </tr>
+
+      <% @user.own_shows.each do |show| %>
+      <tr>
+
+        <td>
+          <%= show.title %>
+        </td>
+
+        <td>
+          <%= show.source %>
+        </td>
+
+        <td>
+          <%= show.genre_topic %>
+        </td>
+
+        <td>
+          <%= show.description %>
+        </td>
+
+        <td>
+          <%= show.comments %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(show.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(show.updated_at) %> ago
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
